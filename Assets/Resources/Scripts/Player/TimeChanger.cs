@@ -29,12 +29,12 @@ public class TimeChanger : MonoBehaviour
             brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
             if ( timeState == "past")
             {
-                tf.position = new Vector3(tf.position.x + 20f, tf.position.y, tf.position.z);
+                tf.position = new Vector3(tf.position.x - 20f, tf.position.y, tf.position.z);
                 timeState = "future";
             }
             else if(timeState == "future")
             {
-                tf.position = new Vector3(tf.position.x - 20f, tf.position.y, tf.position.z);
+                tf.position = new Vector3(tf.position.x + 20f, tf.position.y, tf.position.z);
                 timeState = "past";
             }
             //Nötig damit die Kamera nicht im gleichen tick zurück gestellt wird
