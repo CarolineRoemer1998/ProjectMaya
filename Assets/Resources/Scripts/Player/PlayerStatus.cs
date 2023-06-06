@@ -2,23 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Status : MonoBehaviour
+public class PlayerStatus : MonoBehaviour
 {
-    public int HpBase;
-    public int HpMax;
-    public int HpCurrent;
-    public int playerSpeed;
-    public int ApBase;
-    public int ApCurrent;
+    [SerializeField] private int HpBase;
+    [SerializeField] private int HpMax;
+    [SerializeField] private int HpCurrent;
+    [SerializeField] private int playerSpeed;
+    [SerializeField] private int ApBase;
+    [SerializeField] private int ApCurrent;
 
-    public Status()
+    public PlayerStatus()
     {
         HpCurrent = HpMax;
     }
 
-    public int getPlayerSpeed()
+    public void Heal(int hp)
     {
-        return this.playerSpeed;
+        if (HpCurrent + hp <= HpMax)
+        {
+            HpCurrent += hp;
+        }
+        else
+        {
+            HpCurrent = HpMax;
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        HpMax -= damage;
     }
 
     /// <summary>
@@ -45,15 +57,13 @@ public class Status : MonoBehaviour
     // TODO: Inventar einrichten - aktuelle Items lesen und daraus MaxHP berechnen
     //}
 
-    public void Heal(int hp)
+    //Getter 
+    public int getPlayerSpeed()
     {
-        if (HpCurrent + hp <= HpMax)
-        {
-            HpCurrent += hp;
-        }
-        else
-        {
-            HpCurrent = HpMax;
-        }
+        return this.playerSpeed;
+    }
+    public int getPlayerHp()
+    {
+        return this.HpCurrent;
     }
 }
