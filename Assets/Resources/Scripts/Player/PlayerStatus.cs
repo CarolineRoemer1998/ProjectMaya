@@ -7,7 +7,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private int HpBase;
     [SerializeField] private int HpMax;
     [SerializeField] private int HpCurrent;
-    [SerializeField] private int playerSpeed;
+    [SerializeField] private int PlayerSpeed;
     [SerializeField] private int ApBase;
     [SerializeField] private int ApCurrent;
 
@@ -30,7 +30,7 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        HpMax -= damage;
+        HpCurrent -= damage;
     }
 
     /// <summary>
@@ -60,10 +60,10 @@ public class PlayerStatus : MonoBehaviour
     //Getter 
     public int getPlayerSpeed()
     {
-        return this.playerSpeed;
+        return PlayerSpeed;
     }
     public int getPlayerHp()
     {
-        return this.HpCurrent;
+        return HpCurrent;
     }
 }

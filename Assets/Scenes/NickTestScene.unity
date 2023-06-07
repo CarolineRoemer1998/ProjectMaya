@@ -449,6 +449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 380702992}
   - component: {fileID: 380702991}
+  - component: {fileID: 380702995}
   - component: {fileID: 380702994}
   - component: {fileID: 380702993}
   m_Layer: 0
@@ -572,6 +573,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &380702995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 380702990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8be054b7afcb78b4b8c84614689cebc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HpBase: 20
+  HpMax: 20
+  HpCurrent: 20
+  EnemySpeed: 0
+  ApBase: 5
+  ApCurrent: 5
 --- !u!1 &555592549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,10 +1447,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbccdbfd192def4a9acfe74b01f1d33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HpBase: 0
-  HpMax: 0
-  HpCurrent: 0
-  playerSpeed: 7
+  HpBase: 20
+  HpMax: 20
+  HpCurrent: 20
+  PlayerSpeed: 7
   ApBase: 0
   ApCurrent: 0
 --- !u!114 &1405680921

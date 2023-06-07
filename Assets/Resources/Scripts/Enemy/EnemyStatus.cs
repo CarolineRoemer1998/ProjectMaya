@@ -7,7 +7,7 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField] private int HpBase;
     [SerializeField] private int HpMax;
     [SerializeField] private int HpCurrent;
-    [SerializeField] private int playerSpeed;
+    [SerializeField] private int EnemySpeed;
     [SerializeField] private int ApBase;
     [SerializeField] private int ApCurrent;
 
@@ -18,7 +18,7 @@ public class EnemyStatus : MonoBehaviour
 
     public int getEnemySpeed()
     {
-        return this.playerSpeed;
+        return this.EnemySpeed;
     }
 
     public int getEnemyHp()

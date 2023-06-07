@@ -12,7 +12,8 @@ public class PlayerColider : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             Debug.Log("Player hit Enemy");
-            //Parentstatus.TakeDamage(other.GetComponent<EnemyStatus>().getDamage());
+            Parentstatus.TakeDamage(other.GetComponent<EnemyStatus>().getDamage());
+            Debug.Log(Parentstatus.getPlayerHp());
         }
     }
 }
