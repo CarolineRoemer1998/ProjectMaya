@@ -16,6 +16,11 @@ public class EnemyStatus : MonoBehaviour
         HpCurrent = HpMax;
     }
 
+    public void TakeDamage(int damage)
+    {
+        HpCurrent -= damage;
+    }
+
     public int getEnemySpeed()
     {
         return EnemySpeed;

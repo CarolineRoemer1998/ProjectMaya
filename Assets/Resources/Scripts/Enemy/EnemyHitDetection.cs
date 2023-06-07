@@ -2,50 +2,49 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColider : MonoBehaviour
+public class EnemyHitDetection : MonoBehaviour
 {
-    [SerializeField] private PlayerStatus Parentstatus;
+    private EnemyStatus status;
     private float damageTick;
     private bool hit;
     private Collider2D other;
 
     private void Start()
     {
+        status = gameObject.GetComponent<EnemyStatus>();
         hit = false;
         damageTick = 1;
     }
 
     private void Update()
     {
-        if (hit)
+        damageTick += Time.deltaTime;
+        if (hit && Input.GetMouseButtonDown(0))
         {
-            damageTick += Time.deltaTime;
-            if (damageTick >= 1f)
+            if (damageTick >= 1f )
             {
                 damageTick = 0;
-                Parentstatus.TakeDamage(other.GetComponent<EnemyStatus>().getDamage());
-                //Debug.Log(Parentstatus.getPlayerHp());
-
+                status.TakeDamage(other.GetComponentInParent<PlayerStatus>().getDamage());
+                Debug.Log(status.getEnemyHp());
             }
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Attack"))
         {
             this.other = other;
             hit = true;
-            //Debug.Log("Player hit Enemy");
+            Debug.Log("Enemy ís hit");
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Attack"))
         {
             hit = false;
-            //Debug.Log("Player hit not Enemy");
+            Debug.Log("Enemy is not hit");
         }
     }
 }

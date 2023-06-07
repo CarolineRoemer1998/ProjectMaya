@@ -66,4 +66,8 @@ public class PlayerStatus : MonoBehaviour
     {
         return HpCurrent;
     }
+    public int getDamage()
+    {
+        return ApCurrent;
+    }
 }

@@ -12,8 +12,6 @@ public class CameraTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Trigger");
-
         //Bei Collider wird auf die Camera der Zone gewechselt
         if (other.CompareTag("Player"))
         {
