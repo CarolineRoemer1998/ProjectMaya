@@ -7,7 +7,9 @@ public class TimeChanger : MonoBehaviour
 {
     private Transform tf;
     [SerializeField] private CinemachineBrain brain;
+    [SerializeField] private float maxCooldown;
     private string timeState;
+    private float cooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +21,21 @@ public class TimeChanger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TimeChange();
+        if (cooldown <= 0)
+        {
+            TimeChange();
+        }
+        else if(cooldown > 0)
+        {
+            cooldown -= Time.deltaTime;
+        }
     }
 
     void TimeChange()
     {
         if (Input.GetButtonDown("Fire3"))
         {
+            cooldown = maxCooldown;
             brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
             if ( timeState == "past")
             {

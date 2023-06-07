@@ -1745,6 +1745,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brain: {fileID: 1574978630}
+  maxCooldown: 3
 --- !u!1 &1419491471
 GameObject:
   m_ObjectHideFlags: 3
