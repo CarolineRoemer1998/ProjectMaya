@@ -18,16 +18,16 @@ public class EnemyStatus : MonoBehaviour
 
     public int getEnemySpeed()
     {
-        return this.EnemySpeed;
+        return EnemySpeed;
     }
 
     public int getEnemyHp()
     {
-        return this.HpCurrent;
+        return HpCurrent;
     }
 
     public int getDamage()
     {
-        return this.ApCurrent;
+        return ApCurrent;
     }
 }
