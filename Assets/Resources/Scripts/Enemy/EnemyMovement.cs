@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
         direction = playerRB.transform.position - rb.transform.position;
         direction.Normalize();
         movement = direction;
-        rb.MovePosition((Vector2)transform.position + (movement * status.getEnemySpeed() * Time.deltaTime * 10));
+        rb.MovePosition((Vector2)transform.position + (movement * status.getEnemySpeed()/100));
     }
 
     public bool getActive()
