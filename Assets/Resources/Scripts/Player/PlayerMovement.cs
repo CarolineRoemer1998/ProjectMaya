@@ -33,19 +33,19 @@ public class PlayerMovement : MonoBehaviour
         //Verbesserte Methode fürs Movement, player wird nicht mehr teleportiert und somit in objekte hinein gesetzt, sondern nur bewegt
         rb.velocity = new Vector3(movementSpeed.x, movementSpeed.y);
 
-        if (inputY > 0)
+        if (Input.GetKey(KeyCode.W))
         {
             rb.rotation = 0f;
         }
-        else if (inputY < 0)
+        else if (Input.GetKey(KeyCode.S))
         {
             rb.rotation = 180f;
         }
-        if (inputX > 0)
+        if (Input.GetKey(KeyCode.D))
         {
             rb.rotation = 270f;
         }
-        else if (inputX < 0)
+        else if (Input.GetKey(KeyCode.A))
         {
             rb.rotation = 90f;
         }
