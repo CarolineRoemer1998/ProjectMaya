@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyHitDetection : MonoBehaviour
+public class E_HitDetection : MonoBehaviour
 {
-    private EnemyStatus status;
+    private E_Status status;
     private float damageTick;
     private bool hit;
     private Collider2D other;
 
     private void Start()
     {
-        status = gameObject.GetComponent<EnemyStatus>();
+        status = gameObject.GetComponent<E_Status>();
         hit = false;
         damageTick = 1;
     }
@@ -24,7 +24,7 @@ public class EnemyHitDetection : MonoBehaviour
             if (damageTick >= 1f )
             {
                 damageTick = 0;
-                status.TakeDamage(other.GetComponentInParent<PlayerStatus>().getDamage());
+                status.TakeDamage(other.GetComponentInParent<P_Status>().getDamage());
                 Debug.Log(status.getEnemyHp());
             }
         }

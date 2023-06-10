@@ -31,6 +31,9 @@ public class TimeChanger : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Wechselt bei input zwischen 2 "Zeiten" indem der Spieler teleportiert wird
+    /// </summary>
     void TimeChange()
     {
         if (Input.GetButtonDown("Fire3"))

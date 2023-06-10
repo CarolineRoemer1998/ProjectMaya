@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDetection : MonoBehaviour
+/// <summary>
+/// Check ob der Spieler im Trigger ist un wenn ja wird der Gegner Aktiviert
+/// </summary>
+public class E_Detection : MonoBehaviour
 {
 
-    [SerializeField] EnemyMovement movement;
+    [SerializeField] E_Movement movement;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

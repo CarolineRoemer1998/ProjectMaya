@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class P_Movement : MonoBehaviour
 {
     private float inputX;
     private float inputY;
@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        playerSpeed = gameObject.GetComponent<PlayerStatus>().getPlayerSpeed();
+        playerSpeed = gameObject.GetComponent<P_Status>().getPlayerSpeed();
         rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -36,18 +36,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             rb.rotation = 0f;
+            //Animation flag
         }
         else if (Input.GetKey(KeyCode.S))
         {
             rb.rotation = 180f;
+            //Animation flag
         }
         if (Input.GetKey(KeyCode.D))
         {
             rb.rotation = 270f;
+            //Animation flag
         }
         else if (Input.GetKey(KeyCode.A))
         {
             rb.rotation = 90f;
+            //Animation flag
         }
     }
 }

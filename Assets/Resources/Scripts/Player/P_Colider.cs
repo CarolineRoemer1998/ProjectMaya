@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColider : MonoBehaviour
+public class P_Colider : MonoBehaviour
 {
-    [SerializeField] private PlayerStatus Parentstatus;
+    [SerializeField] private P_Status Parentstatus;
     private float damageTick;
     private bool hit;
     private Collider2D other;
@@ -23,7 +23,7 @@ public class PlayerColider : MonoBehaviour
             if (damageTick >= 1f)
             {
                 damageTick = 0;
-                Parentstatus.TakeDamage(other.GetComponent<EnemyStatus>().getDamage());
+                Parentstatus.TakeDamage(other.GetComponent<E_Status>().getDamage());
                 //Debug.Log(Parentstatus.getPlayerHp());
 
             }

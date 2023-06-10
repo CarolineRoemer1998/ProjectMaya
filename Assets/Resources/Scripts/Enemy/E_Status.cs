@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyStatus : MonoBehaviour
+public class E_Status : MonoBehaviour
 {
     [SerializeField] private int HpBase;
     [SerializeField] private int HpMax;
@@ -11,7 +11,12 @@ public class EnemyStatus : MonoBehaviour
     [SerializeField] private int ApBase;
     [SerializeField] private int ApCurrent;
 
-    public EnemyStatus()
+    private void Update()
+    {
+        //Vielleicht in eigenes Skipt auslagern?
+        Checkhealth();
+    }
+    public E_Status()
     {
         HpCurrent = HpMax;
     }
@@ -34,5 +39,15 @@ public class EnemyStatus : MonoBehaviour
     public int getDamage()
     {
         return ApCurrent;
+    }
+    /// <summary>
+    /// Checkt ob ein Gegner 0 oder weniger Leben hat, wenn wir er zerstört
+    /// </summary>
+    private void Checkhealth()
+    {
+        if (HpCurrent <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

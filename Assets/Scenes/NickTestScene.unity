@@ -448,10 +448,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 250997597}
-  - component: {fileID: 250997599}
   - component: {fileID: 250997598}
   m_Layer: 0
-  m_Name: Patrolpoint3
+  m_Name: PatrolFlag3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -493,32 +492,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &250997599
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250997596}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &257767707
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,10 +501,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 257767708}
-  - component: {fileID: 257767710}
   - component: {fileID: 257767709}
   m_Layer: 0
-  m_Name: Patrolpoint2
+  m_Name: PatrolFlag2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -573,32 +545,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &257767710
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 257767707}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &272432832
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,10 +691,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 379048633}
-  - component: {fileID: 379048635}
   - component: {fileID: 379048634}
   m_Layer: 0
-  m_Name: Patrolpoint1
+  m_Name: PatrolFlag1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -790,32 +735,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &379048635
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379048632}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1 &380702990
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,7 +746,6 @@ GameObject:
   - component: {fileID: 380702992}
   - component: {fileID: 380702991}
   - component: {fileID: 380702995}
-  - component: {fileID: 380702998}
   - component: {fileID: 380702996}
   - component: {fileID: 380702997}
   - component: {fileID: 380702994}
@@ -899,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 380702990}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4, y: 10, z: 0}
+  m_LocalPosition: {x: 4, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -985,6 +903,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1405680919}
+  hasPatrol: 1
+  patrolPoints:
+  - {fileID: 379048632}
+  - {fileID: 257767707}
+  - {fileID: 250997596}
 --- !u!114 &380702997
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,22 +920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad9810f58b5965489d2da2fa0459920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &380702998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 380702990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f008614da3f2a3b4098a7c7c6fda4af1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patrolPoints:
-  - {fileID: 379048632}
-  - {fileID: 257767707}
-  - {fileID: 250997596}
 --- !u!1 &480267679
 GameObject:
   m_ObjectHideFlags: 0

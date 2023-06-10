@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class P_Status : MonoBehaviour
 {
     [SerializeField] private int HpBase;
     [SerializeField] private int HpMax;
@@ -11,7 +11,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private int ApBase;
     [SerializeField] private int ApCurrent;
 
-    public PlayerStatus()
+    public P_Status()
     {
         HpCurrent = HpMax;
     }
