@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Part of the Player
+/// </summary>
 public class P_Status : MonoBehaviour
 {
     [SerializeField] private int HpBase = 20;

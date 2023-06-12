@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Check ob der Spieler im Trigger ist un wenn ja wird der Gegner Aktiviert
+/// Check ob der Spieler im Trigger ist un wenn ja wird der Gegner Aktiviert, Part of the Enemy-Detection-Radius
 /// </summary>
 public class E_Detection : MonoBehaviour
 {

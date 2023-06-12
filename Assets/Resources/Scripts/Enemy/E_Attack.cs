@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Part of the Enemy-Attack-Radius
+/// </summary>
 public class E_Attack : MonoBehaviour
 {
     private P_Status playerStatus;
