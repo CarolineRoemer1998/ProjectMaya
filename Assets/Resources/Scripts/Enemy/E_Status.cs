@@ -4,28 +4,39 @@ using UnityEngine;
 
 public class E_Status : MonoBehaviour
 {
-    [SerializeField] private int HpBase;
-    [SerializeField] private int HpMax;
-    [SerializeField] private int HpCurrent;
-    [SerializeField] private int EnemySpeed;
-    [SerializeField] private int ApBase;
-    [SerializeField] private int ApCurrent;
+    [SerializeField] private int HpBase = 20;
+    [SerializeField] private int HpMax = 20;
+    [SerializeField] private int HpCurrent = 20;
+    [SerializeField] private int EnemySpeed = 4;
+    [SerializeField] private int ApBase = 5; 
+    [SerializeField] private int ApCurrent = 5;
+    [SerializeField] private int Knockback = 250;
 
+    public E_Status()
+    {
+        HpCurrent = HpMax;
+    }
     private void Update()
     {
         //Vielleicht in eigenes Skipt auslagern?
         Checkhealth();
     }
-    public E_Status()
+    /// <summary>
+    /// Checkt ob ein Gegner 0 oder weniger Leben hat, wenn wir er zerstört
+    /// </summary>
+    private void Checkhealth()
     {
-        HpCurrent = HpMax;
+        if (HpCurrent <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
-
     public void TakeDamage(int damage)
     {
         HpCurrent -= damage;
     }
 
+    //Getter und Setter
     public int getEnemySpeed()
     {
         return EnemySpeed;
@@ -40,14 +51,8 @@ public class E_Status : MonoBehaviour
     {
         return ApCurrent;
     }
-    /// <summary>
-    /// Checkt ob ein Gegner 0 oder weniger Leben hat, wenn wir er zerstört
-    /// </summary>
-    private void Checkhealth()
+    public int getKnockback()
     {
-        if (HpCurrent <= 0)
-        {
-            Destroy(gameObject);
-        }
+        return Knockback;
     }
 }

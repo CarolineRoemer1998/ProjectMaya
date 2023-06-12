@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class P_Status : MonoBehaviour
 {
-    [SerializeField] private int HpBase;
-    [SerializeField] private int HpMax;
-    [SerializeField] private int HpCurrent;
-    [SerializeField] private int PlayerSpeed;
-    [SerializeField] private int ApBase;
-    [SerializeField] private int ApCurrent;
+    [SerializeField] private int HpBase = 20;
+    [SerializeField] private int HpMax = 20;
+    [SerializeField] private int HpCurrent = 20;
+    [SerializeField] private int PlayerSpeed = 5;
+    [SerializeField] private int ApBase = 5;
+    [SerializeField] private int ApCurrent = 5;
+    [SerializeField] private int Knockback = 250;
 
     public P_Status()
     {
@@ -57,7 +58,7 @@ public class P_Status : MonoBehaviour
     // TODO: Inventar einrichten - aktuelle Items lesen und daraus MaxHP berechnen
     //}
 
-    //Getter 
+    //Getter und Setter
     public int getPlayerSpeed()
     {
         return PlayerSpeed;
@@ -69,5 +70,9 @@ public class P_Status : MonoBehaviour
     public int getDamage()
     {
         return ApCurrent;
+    }
+    public int getKnockback()
+    {
+        return Knockback;
     }
 }
