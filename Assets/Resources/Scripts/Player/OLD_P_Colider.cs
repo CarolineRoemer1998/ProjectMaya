@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class P_Colider : MonoBehaviour
+public class OLD_P_Colider : MonoBehaviour
 {
     [SerializeField] private P_Status Parentstatus;
     private float damageTick;
