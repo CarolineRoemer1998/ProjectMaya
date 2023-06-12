@@ -27,6 +27,7 @@ public class E_Attack : MonoBehaviour
                 damageTick = 0;
                 playerStatus.TakeDamage(gameObject.GetComponentInParent<E_Status>().getDamage());
                 Debug.Log(playerStatus.getPlayerHp());
+                Knockback(playerStatus.gameObject.GetComponent<Rigidbody2D>(), gameObject.GetComponentInParent<Rigidbody2D>().transform);
             }
         }
     }
@@ -35,7 +36,6 @@ public class E_Attack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player in hit range");
             player = other;
             hit = true;
             //Get Player Status
@@ -48,5 +48,17 @@ public class E_Attack : MonoBehaviour
         {
             hit = false;
         }
+    }
+
+    /// <summary>
+    /// Methode damit der Spieler bei treffer eines Gegners zurück gestoßen wird
+    /// </summary>
+    private void Knockback(Rigidbody2D player, Transform enemy)
+    {
+        Debug.Log("Knock");
+        Vector2 knockback = (enemy.position - player.transform.position);
+        knockback.Normalize();
+        player.MovePosition((Vector2)player.transform.position - (knockback*0.5f));
+
     }
 }
