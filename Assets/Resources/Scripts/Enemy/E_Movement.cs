@@ -84,4 +84,16 @@ public class E_Movement : MonoBehaviour
             patrolPoints.Add(temp);
         }
     }
+
+    public Vector2 getTarget()
+    {
+        if (active)
+        {
+            return playerRB.transform.position;
+        }
+        else
+        {
+            return patrolPoints[0].GetComponent<Rigidbody2D>().transform.position;
+        }
+    }
 }
