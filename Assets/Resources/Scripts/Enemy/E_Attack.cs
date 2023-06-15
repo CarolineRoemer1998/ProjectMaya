@@ -15,20 +15,20 @@ public class E_Attack : MonoBehaviour
 
     //Nötig damit der Spieler als flüssige bewegung vom Gegner weggeschlagen wird und nicht in einem stück teleportiert wird
     /// <summary>
-    /// Alle 10 Updates wird der spieler nach einem treffer zurück geschlagen, der couter zahlt dies.
+    /// Alle x sekunden wird der gegner nach einem treffer zurück geschlagen, der timer zahlt dies.
+    /// </summary>
+    private float timer;
+    /// <summary>
+    /// Anzahl wie of der Gegner nach einem treffer zurück geschlagen wird.
     /// </summary>
     private int counter;
-    /// <summary>
-    /// Anzahl wie of der Spieler nach einem treffer zurück geschlagen wird.
-    /// </summary>
-    private int times;
 
     void Start()
     {
         hit = false;
         damageTick = 1;
+        timer = 0;
         counter = 0;
-        times = 0;
         enemyDamage = gameObject.GetComponentInParent<E_Status>().getDamage();
         enemyKnockback = gameObject.GetComponentInParent<E_Status>().getKnockback();
     }
@@ -43,20 +43,20 @@ public class E_Attack : MonoBehaviour
                 damageTick = 0;
                 playerStatus.TakeDamage(enemyDamage);
                 Debug.Log(playerStatus.getPlayerHp());
-                times = 8;
+                counter = 10;
             }
         }
-        //Wenn times > 0 soll der counter resettet werden damit der spieler ein weiteres mal zurück gestoßen wird
-        if (times > 0 && counter == 0)
+        //Wenn counter > 0 soll der counter resettet werden damit der spieler ein weiteres mal zurück gestoßen wird
+        if (counter > 0 && timer <= 0)
         {
-            times -= 1;
-            counter = 10;
+            counter -= 1;
+            timer = 0.01f;
         }
-        //Wenn counter 0 wird der spieler zurück geworfen
+        //Wenn timer 0.01 ist, wird der spieler zurück geworfen
         if (playerStatus != null)
         {
-            if (counter == 10) { Knockback(playerStatus.gameObject.GetComponent<Rigidbody2D>(), gameObject.GetComponentInParent<Rigidbody2D>().transform, enemyKnockback); }
-            if (counter > 0) { counter -= 1; }
+            if (timer == 0.01f)  { Knockback(playerStatus.gameObject.GetComponent<Rigidbody2D>(), gameObject.GetComponentInParent<Rigidbody2D>().transform, enemyKnockback); }
+            if (timer > 0.0f) { timer -= Time.deltaTime; }
         }
     }
 

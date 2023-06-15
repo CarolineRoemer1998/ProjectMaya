@@ -13,21 +13,21 @@ public class E_HitDetection : MonoBehaviour
 
     //Nötig damit der gegner als flüssige bewegung vom spieler weggeschlagen wird und nicht in einem stück teleportiert wird
     /// <summary>
-    /// Alle 10 Updates wird der gegner nach einem treffer zurück geschlagen, der couter zahlt dies.
+    /// Alle x sekunden wird der gegner nach einem treffer zurück geschlagen, der timer zahlt dies.
     /// </summary>
-    private int counter;
+    private float timer;
     /// <summary>
     /// Anzahl wie of der Gegner nach einem treffer zurück geschlagen wird.
     /// </summary>
-    private int times;
+    private int counter;
 
     private void Start()
     {
         status = gameObject.GetComponent<E_Status>();
         hit = false;
         damageTick = 1;
+        timer = 0;
         counter = 0;
-        times = 0;
     }
 
     private void Update()
@@ -40,19 +40,19 @@ public class E_HitDetection : MonoBehaviour
                 damageTick = 0;
                 status.TakeDamage(other.GetComponentInParent<P_Status>().getDamage());
                 Debug.Log(status.getEnemyHp());
-                times = 8;
+                counter = 10;
 
             }
         }
-        //Wenn times > 0 soll der counter resettet werden damit der gegner ein weiteres mal zurück gestoßen wird
-        if (times > 0 && counter == 0)
+        //Wenn counter > 0 soll der timer resettet werden damit der gegner ein weiteres mal zurück gestoßen wird
+        if (counter > 0 && timer <= 0)
         {
-            times -= 1;
-            counter = 10;
+            counter -= 1;
+            timer = 0.01f;
         }
-        //Wenn counter 0 wird der gegner zurück geworfen
-        if (counter == 10) { Knockback(other.gameObject.GetComponent<Rigidbody2D>(), gameObject.GetComponentInParent<Rigidbody2D>(), other.GetComponentInParent<P_Status>().getKnockback()); }
-        if (counter > 0) { counter -= 1; }
+        //Wenn timer 0.01 ist, wird der spieler zurück geworfen
+        if (timer == 0.01f) { Knockback(other.gameObject.GetComponent<Rigidbody2D>(), gameObject.GetComponentInParent<Rigidbody2D>(), other.GetComponentInParent<P_Status>().getKnockback()); }
+        if (timer > 0.0f) {timer -= Time.deltaTime;}
     }
 
     private void OnTriggerEnter2D(Collider2D other)

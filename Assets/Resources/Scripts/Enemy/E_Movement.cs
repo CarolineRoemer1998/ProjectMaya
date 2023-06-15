@@ -16,6 +16,9 @@ public class E_Movement : MonoBehaviour
     private E_Status status;
     private Vector3 direction;
     private Vector2 movement;
+    /// <summary>
+    /// Speichert ob der Spieler aktuell im Detection-Radius ist
+    /// </summary>
     private bool active;
 
     // Start is called before the first frame update
@@ -62,7 +65,7 @@ public class E_Movement : MonoBehaviour
     }
 
     //Patrol System
-    //Jeder Punkt der abgelaufen werden soll muss als PatrolFlag dem Gegner hinzugefügt werden
+    //Jeder Punkt der abgelaufen werden soll, muss als PatrolFlag dem Gegner hinzugefügt werden
     private void MoveToPoint()
     {
         pointRB = patrolPoints[0].GetComponent<Rigidbody2D>();

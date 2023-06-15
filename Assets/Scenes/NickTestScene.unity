@@ -892,7 +892,7 @@ MonoBehaviour:
   EnemySpeed: 4
   ApBase: 5
   ApCurrent: 5
-  Knockback: 250
+  Knockback: 200
 --- !u!114 &380702996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   PlayerSpeed: 4
   ApBase: 5
   ApCurrent: 5
-  Knockback: 250
+  Knockback: 200
 --- !u!114 &1405680921
 MonoBehaviour:
   m_ObjectHideFlags: 0
