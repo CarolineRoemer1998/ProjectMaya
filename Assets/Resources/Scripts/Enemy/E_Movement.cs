@@ -80,7 +80,7 @@ public class E_Movement : MonoBehaviour
 
     private void NextPoint()
     {
-        if (Vector3.Distance(rb.transform.position, pointRB.transform.position) < 0.1f)
+        if (Vector2.Distance(rb.transform.position, pointRB.transform.position) < 1f)
         {
             GameObject temp = patrolPoints[0];
             patrolPoints.RemoveAt(0);
