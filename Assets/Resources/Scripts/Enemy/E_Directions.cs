@@ -7,12 +7,15 @@ using UnityEngine;
 public class E_Directions : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private E_Animator animator;
     private float angle;
     private Vector2 pos_old;
     private int i;
+    private string currentDirection;
 
     void Start()
     {
+        animator = gameObject.GetComponent<E_Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         pos_old = rb.position;
         i = 0;
@@ -41,22 +44,47 @@ public class E_Directions : MonoBehaviour
         //Oben
         if(45f < angle && angle < 135f)
         {
-            Debug.Log("Oben");
+            if (currentDirection != "Up")
+            {
+                animator.ChangeAnimationState("E_Move_Up");
+                currentDirection = "Up";
+                Debug.Log("Up");
+            }
         }
         //Unten
         else if (225f < angle && angle < 315f)
         {
-            Debug.Log("Unten");
+            if (currentDirection != "Down")
+            {
+                animator.ChangeAnimationState("E_Move_Down");
+                currentDirection = "Down";
+                Debug.Log("Down");
+            }
         }
         //Links
         else if (135f <= angle && angle <= 225f)
         {
-            Debug.Log("Links");
+            if (currentDirection != "Left")
+            {
+                animator.ChangeAnimationState("E_Move_Left");
+                currentDirection = "Left";
+                Debug.Log("Left");
+            }
         }
         //Rechts
         else if ((315f <= angle && angle <= 360f)||(0f <= angle && angle <= 45f))
         {
-            Debug.Log("Rechts");
+            if (currentDirection != "Right")
+            {
+                animator.ChangeAnimationState("E_Move_Right");
+                currentDirection = "Right";
+                Debug.Log("Right");
+            }
         }
+    }
+
+    public string GetDirection()
+    {
+        return currentDirection;
     }
 }

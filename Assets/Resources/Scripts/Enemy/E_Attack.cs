@@ -6,7 +6,12 @@ using UnityEngine;
 /// </summary>
 public class E_Attack : MonoBehaviour
 {
+    [SerializeField] GameObject p;
     private P_Status playerStatus;
+    private P_Movement playerMovement;
+    private P_Animator pAnimator;
+    private E_Animator eAnimator;
+    private E_Directions eDirections;
     private float damageTick;
     private bool hit;
     private Collider2D player;
@@ -25,6 +30,9 @@ public class E_Attack : MonoBehaviour
 
     void Start()
     {
+        pAnimator = gameObject.GetComponent<P_Animator>();
+        eAnimator = gameObject.GetComponentInParent<E_Animator>();
+        eDirections = gameObject.GetComponentInParent<E_Directions>();
         hit = false;
         damageTick = 1;
         timer = 0;
@@ -38,6 +46,7 @@ public class E_Attack : MonoBehaviour
         damageTick += Time.deltaTime;
         if (hit)
         {
+            ChangeAnimation();
             if (damageTick >= 1f)
             {
                 damageTick = 0;
@@ -57,6 +66,25 @@ public class E_Attack : MonoBehaviour
         {
             if (timer == 0.01f)  { Knockback(playerStatus.gameObject.GetComponent<Rigidbody2D>(), gameObject.GetComponentInParent<Rigidbody2D>().transform, enemyKnockback); }
             if (timer > 0.0f) { timer -= Time.deltaTime; }
+        }
+    }
+
+    private void ChangeAnimation()
+    {
+        switch (eDirections.GetDirection())
+        {
+            case "Up":
+                eAnimator.ChangeAnimationState("E_Attack_Up");
+                break;
+            case "Down":
+                eAnimator.ChangeAnimationState("E_Attack_Down");
+                break;
+            case "Left":
+                eAnimator.ChangeAnimationState("E_Attack_Left");
+                break;
+            case "Right":
+                eAnimator.ChangeAnimationState("E_Attack_Right");
+                break;
         }
     }
 
