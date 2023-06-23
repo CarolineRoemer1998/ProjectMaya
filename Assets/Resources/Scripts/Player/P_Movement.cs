@@ -10,6 +10,7 @@ public class P_Movement : MonoBehaviour
     private float inputY;
     private int playerSpeed;
     private Rigidbody2D rb;
+    [SerializeField] private Rigidbody2D attackRB;
     private P_Animator animator;
     private string attackDirection;
 
@@ -38,6 +39,7 @@ public class P_Movement : MonoBehaviour
         
         //Verbesserte Methode fürs Movement, player wird nicht mehr teleportiert und somit in objekte hinein gesetzt, sondern nur bewegt
         rb.velocity = new Vector3(movementSpeed.x, movementSpeed.y);
+        attackRB.position = rb.position;
 
         GetKeyDownActions();
         GetKeyUpActions();
@@ -48,25 +50,25 @@ public class P_Movement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
-            //rb.rotation = 0f;
+            attackRB.rotation = 0f;
             attackDirection = "up";
             animator.ChangeAnimationState("move_up");
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
-            //rb.rotation = 180f;
+            attackRB.rotation = 180f;
             attackDirection = "down";
             animator.ChangeAnimationState("move_down");
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            //rb.rotation = 270f;
+            attackRB.rotation = 270f;
             attackDirection = "right";
             animator.ChangeAnimationState("move_right");
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            //rb.rotation = 90f;
+            attackRB.rotation = 90f;
             attackDirection = "left";
             animator.ChangeAnimationState("move_left");
         }
@@ -81,22 +83,22 @@ public class P_Movement : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.W))
         {
-            //rb.rotation = 0f;
+            attackRB.rotation = 0f;
             animator.ChangeAnimationState("idle_up");
         }
         else if (Input.GetKeyUp(KeyCode.S))
         {
-            //rb.rotation = 180f;
+            attackRB.rotation = 180f;
             animator.ChangeAnimationState("idle_down");
         }
         if (Input.GetKeyUp(KeyCode.D))
         {
-            //rb.rotation = 270f;
+            attackRB.rotation = 270f;
             animator.ChangeAnimationState("idle_right");
         }
         else if (Input.GetKeyUp(KeyCode.A))
         {
-            //rb.rotation = 90f;
+            attackRB.rotation = 90f;
             animator.ChangeAnimationState("idle_left");
         }
     }
