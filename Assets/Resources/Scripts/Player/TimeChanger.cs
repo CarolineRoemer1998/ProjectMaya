@@ -8,6 +8,7 @@ public class TimeChanger : MonoBehaviour
     private Transform tf;
     [SerializeField] private CinemachineBrain brain;
     [SerializeField] private float maxCooldown;
+    [SerializeField] private GUI_Control guiControl;
     private string timeState;
     private float cooldown;
 
@@ -50,6 +51,8 @@ public class TimeChanger : MonoBehaviour
                 tf.position = new Vector3(tf.position.x, tf.position.y + 18, tf.position.z);
                 timeState = "past";
             }
+            guiControl.SetTime(timeState);
+            guiControl.LowerMana(100); // 100 = 100%
             //Nötig damit die Kamera nicht im gleichen tick zurück gestellt wird
             Invoke("ChangeBack", 0.1f);
         }

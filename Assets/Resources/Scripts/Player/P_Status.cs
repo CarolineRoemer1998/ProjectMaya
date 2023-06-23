@@ -13,6 +13,7 @@ public class P_Status : MonoBehaviour
     [SerializeField] private int ApBase = 5;
     [SerializeField] private int ApCurrent = 5;
     [SerializeField] private int Knockback = 250;
+    [SerializeField] private GUI_Control gui;
     private string direction;
     private P_Animator animator;
 
@@ -41,6 +42,7 @@ public class P_Status : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        gui.LowerHealth(damage);
         HpCurrent -= damage;
     }
 
