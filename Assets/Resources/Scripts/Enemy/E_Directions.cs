@@ -8,6 +8,7 @@ public class E_Directions : MonoBehaviour
 {
     private Rigidbody2D rb;
     private E_Animator animator;
+    private E_Movement movement;
     private float angle;
     private Vector2 pos_old;
     private int i;
@@ -17,6 +18,7 @@ public class E_Directions : MonoBehaviour
     {
         animator = gameObject.GetComponent<E_Animator>();
         rb = gameObject.GetComponent<Rigidbody2D>();
+        movement = gameObject.GetComponent<E_Movement>();
         pos_old = rb.position;
         i = 0;
     }
@@ -41,45 +43,49 @@ public class E_Directions : MonoBehaviour
     }
     private void Animations(float angle)
     {
-        //Oben
-        if(45f < angle && angle < 135f)
+        if(movement.getActive() || movement.getPatrol())
         {
-            if (currentDirection != "Up")
+            //Oben
+            if (45f < angle && angle < 135f)
             {
-                animator.ChangeAnimationState("E_Move_Up");
-                currentDirection = "Up";
-                Debug.Log("Up");
+                if (currentDirection != "Up")
+                {
+                    animator.ChangeAnimationState("E_Move_Up");
+                    currentDirection = "Up";
+                }
+            }
+            //Unten
+            else if (225f < angle && angle < 315f)
+            {
+                if (currentDirection != "Down")
+                {
+                    animator.ChangeAnimationState("E_Move_Down");
+                    currentDirection = "Down";
+                }
+            }
+            //Links
+            else if (135f <= angle && angle <= 225f)
+            {
+                if (currentDirection != "Left")
+                {
+                    animator.ChangeAnimationState("E_Move_Left");
+                    currentDirection = "Left";
+                }
+            }
+            //Rechts
+            else if ((315f <= angle && angle <= 360f) || (0f <= angle && angle <= 45f))
+            {
+                if (currentDirection != "Right")
+                {
+                    animator.ChangeAnimationState("E_Move_Right");
+                    currentDirection = "Right";
+                }
             }
         }
-        //Unten
-        else if (225f < angle && angle < 315f)
+        else
         {
-            if (currentDirection != "Down")
-            {
-                animator.ChangeAnimationState("E_Move_Down");
-                currentDirection = "Down";
-                Debug.Log("Down");
-            }
-        }
-        //Links
-        else if (135f <= angle && angle <= 225f)
-        {
-            if (currentDirection != "Left")
-            {
-                animator.ChangeAnimationState("E_Move_Left");
-                currentDirection = "Left";
-                Debug.Log("Left");
-            }
-        }
-        //Rechts
-        else if ((315f <= angle && angle <= 360f)||(0f <= angle && angle <= 45f))
-        {
-            if (currentDirection != "Right")
-            {
-                animator.ChangeAnimationState("E_Move_Right");
-                currentDirection = "Right";
-                Debug.Log("Right");
-            }
+            animator.ChangeAnimationState("E_Idle_Down");
+            currentDirection = "Idle";
         }
     }
 

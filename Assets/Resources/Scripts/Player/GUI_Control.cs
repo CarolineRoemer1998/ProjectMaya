@@ -19,10 +19,7 @@ public class GUI_Control : MonoBehaviour
 
     private void Update()
     {
-        if(barMana.rectTransform.sizeDelta.x < 247f)
-        {
-            barMana.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, barMana.rectTransform.sizeDelta.x + (247f / 3 * Time.deltaTime));
-        }
+        IncreaseMana();
     }
 
     public void LowerHealth(float amount)
@@ -51,9 +48,12 @@ public class GUI_Control : MonoBehaviour
         }
     }
 
-    public void IncreaseMana(float maxMana)
+    public void IncreaseMana()
     {
-
+        if (barMana.rectTransform.sizeDelta.x < 247f)
+        {
+            barMana.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, barMana.rectTransform.sizeDelta.x + (247f / 3 /2 * Time.deltaTime));
+        }
     }
 
     public void SetTime(string time)

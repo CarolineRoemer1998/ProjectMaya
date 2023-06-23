@@ -43,12 +43,12 @@ public class TimeChanger : MonoBehaviour
             brain.m_DefaultBlend.m_Style = CinemachineBlendDefinition.Style.Cut;
             if ( timeState == "past")
             {
-                tf.position = new Vector3(tf.position.x, tf.position.y - 18, tf.position.z);
+                tf.position = new Vector3(tf.position.x, tf.position.y - 54, tf.position.z);
                 timeState = "future";
             }
             else if(timeState == "future")
             {
-                tf.position = new Vector3(tf.position.x, tf.position.y + 18, tf.position.z);
+                tf.position = new Vector3(tf.position.x, tf.position.y + 54, tf.position.z);
                 timeState = "past";
             }
             guiControl.SetTime(timeState);

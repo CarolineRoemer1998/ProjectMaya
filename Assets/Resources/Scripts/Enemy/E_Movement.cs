@@ -41,7 +41,6 @@ public class E_Movement : MonoBehaviour
             MoveToPoint();
             NextPoint();
         }
-        Animations();
     }
     private void SimpleEnemyMovement()
     {
@@ -59,10 +58,11 @@ public class E_Movement : MonoBehaviour
     {
         this.active = active;
     }
-    private void Animations()
+    public bool getPatrol()
     {
-        //TODO
+        return hasPatrol;
     }
+
 
     //Patrol System
     //Jeder Punkt der abgelaufen werden soll, muss als PatrolFlag dem Gegner hinzugefügt werden
@@ -94,9 +94,13 @@ public class E_Movement : MonoBehaviour
         {
             return playerRB.transform.position;
         }
-        else
+        else if (!active && hasPatrol)
         {
             return patrolPoints[0].GetComponent<Rigidbody2D>().transform.position;
+        }
+        else
+        {
+            return new Vector2(0, 0);
         }
     }
 }
