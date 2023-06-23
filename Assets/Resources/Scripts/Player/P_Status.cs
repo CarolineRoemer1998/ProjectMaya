@@ -13,6 +13,14 @@ public class P_Status : MonoBehaviour
     [SerializeField] private int ApBase = 5;
     [SerializeField] private int ApCurrent = 5;
     [SerializeField] private int Knockback = 250;
+    private string direction;
+    private P_Animator animator;
+
+    private void Start()
+    {
+        animator = gameObject.GetComponent<P_Animator>();
+        direction = "down";
+    }
 
     public P_Status()
     {
@@ -69,10 +77,18 @@ public class P_Status : MonoBehaviour
     {
         return HpCurrent;
     }
+
     public int getDamage()
     {
+        animator.ChangeAnimationState("attack_" + direction);
         return ApCurrent;
     }
+
+    public void setDirection(string direction)
+    {
+        this.direction = direction;
+    }
+
     public int getKnockback()
     {
         return Knockback;

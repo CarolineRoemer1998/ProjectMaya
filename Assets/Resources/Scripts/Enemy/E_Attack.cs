@@ -6,10 +6,7 @@ using UnityEngine;
 /// </summary>
 public class E_Attack : MonoBehaviour
 {
-    [SerializeField] GameObject p;
     private P_Status playerStatus;
-    private P_Movement playerMovement;
-    private P_Animator pAnimator;
     private E_Animator eAnimator;
     private E_Directions eDirections;
     private float damageTick;
@@ -30,7 +27,6 @@ public class E_Attack : MonoBehaviour
 
     void Start()
     {
-        pAnimator = gameObject.GetComponent<P_Animator>();
         eAnimator = gameObject.GetComponentInParent<E_Animator>();
         eDirections = gameObject.GetComponentInParent<E_Directions>();
         hit = false;

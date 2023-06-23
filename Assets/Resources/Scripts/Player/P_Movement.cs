@@ -11,13 +11,15 @@ public class P_Movement : MonoBehaviour
     private int playerSpeed;
     private Rigidbody2D rb;
     private P_Animator animator;
+    private string attackDirection;
 
     void Start()
     {
+        animator = gameObject.GetComponent<P_Animator>();
         playerSpeed = gameObject.GetComponent<P_Status>().getPlayerSpeed();
         rb = gameObject.GetComponent<Rigidbody2D>();
-        animator = gameObject.GetComponent<P_Animator>();
-        animator.ChangeAnimationState("idle_down");
+        //animator.ChangeAnimationState("idle_down");
+        attackDirection = "attack_down";
     }
 
     void Update()
@@ -37,33 +39,42 @@ public class P_Movement : MonoBehaviour
         //Verbesserte Methode fürs Movement, player wird nicht mehr teleportiert und somit in objekte hinein gesetzt, sondern nur bewegt
         rb.velocity = new Vector3(movementSpeed.x, movementSpeed.y);
 
-        GetKeyActions();
+        GetKeyDownActions();
         GetKeyUpActions();
         
     }
 
-    private void GetKeyActions()
+    private void GetKeyDownActions()
     {
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             //rb.rotation = 0f;
+            attackDirection = "up";
             animator.ChangeAnimationState("move_up");
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
         {
             //rb.rotation = 180f;
+            attackDirection = "down";
             animator.ChangeAnimationState("move_down");
         }
         else if (Input.GetKey(KeyCode.D))
         {
             //rb.rotation = 270f;
+            attackDirection = "right";
             animator.ChangeAnimationState("move_right");
         }
         else if (Input.GetKey(KeyCode.A))
         {
             //rb.rotation = 90f;
+            attackDirection = "left";
             animator.ChangeAnimationState("move_left");
         }
+        if (Input.GetMouseButtonDown(0))
+        {
+            animator.ChangeAnimationState("attack_" + attackDirection);
+        }
+        gameObject.GetComponent<P_Status>().setDirection(attackDirection);
     }
 
     private void GetKeyUpActions()
