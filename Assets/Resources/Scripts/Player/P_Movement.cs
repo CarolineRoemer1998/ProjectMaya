@@ -13,6 +13,7 @@ public class P_Movement : MonoBehaviour
     [SerializeField] private Rigidbody2D attackRB;
     private P_Animator animator;
     private string attackDirection;
+    [SerializeField] private P_SoundManager soundManager;
 
     void Start()
     {
@@ -75,6 +76,7 @@ public class P_Movement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.ChangeAnimationState("attack_" + attackDirection);
+            //soundManager.PlaySound(true,false,false);
         }
         gameObject.GetComponent<P_Status>().setDirection(attackDirection);
     }
