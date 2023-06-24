@@ -247,9 +247,11 @@ MonoBehaviour:
   HpMax: 20
   HpCurrent: 20
   EnemySpeed: 5
-  ApBase: 5
-  ApCurrent: 5
+  ApBase: 1
+  ApCurrent: 1
   Knockback: 200
+  blood: {fileID: 0}
+  soundManager: {fileID: 0}
 --- !u!114 &3283273263131268001
 MonoBehaviour:
   m_ObjectHideFlags: 0

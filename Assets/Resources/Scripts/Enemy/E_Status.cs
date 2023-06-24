@@ -10,10 +10,11 @@ public class E_Status : MonoBehaviour
     [SerializeField] private int HpMax = 20;
     [SerializeField] private int HpCurrent = 20;
     [SerializeField] private int EnemySpeed = 4;
-    [SerializeField] private int ApBase = 5; 
-    [SerializeField] private int ApCurrent = 5;
+    [SerializeField] private int ApBase = 1; 
+    [SerializeField] private int ApCurrent = 1;
     [SerializeField] private int Knockback = 250;
     [SerializeField] private GameObject blood;
+    [SerializeField] private P_SoundManager soundManager;
 
     public E_Status()
     {
@@ -42,7 +43,12 @@ public class E_Status : MonoBehaviour
         if(HpCurrent <= 0)
         {
             gameObject.GetComponent<Animator>().SetBool("dead", true);
+            soundManager.PlayKill();
             Checkhealth();
+        }
+        else
+        {
+            soundManager.PlayPunch();
         }
     }
 
