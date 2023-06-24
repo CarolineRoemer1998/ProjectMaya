@@ -42,9 +42,9 @@ public class E_Attack : MonoBehaviour
         damageTick += Time.deltaTime;
         if (hit)
         {
-            ChangeAnimation();
             if (damageTick >= 1f)
             {
+                ChangeAnimation();
                 damageTick = 0;
                 playerStatus.TakeDamage(enemyDamage);
                 Debug.Log(playerStatus.getPlayerHp());
