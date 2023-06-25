@@ -1768,9 +1768,10 @@ TextureImporter:
       tileset02_2: -1874305345
       tileset02_6: 471399800
       tileset02_18: 1544586405
-      tileset02_12: -2010435254
-      tileset02_19: -1911981859
       tileset02_26: -1359295065
+      tileset02_12: -2010435254
+      tileset02_60: 1333170672
+      tileset02_19: -1911981859
       tileset02_24: -133312402
       tileset02_11: -908350395
       tileset02_23: -389072086
@@ -1796,9 +1797,8 @@ TextureImporter:
       tileset02_66: 1508959162
       tileset02_34: -482487642
       tileset02_0: 1705679253
-      tileset02_60: 1333170672
-      tileset02_55: -1877837917
       tileset02_67: -513915769
+      tileset02_55: -1877837917
       tileset02_74: 626498266
       tileset02_68: -1027921355
       tileset02_35: -205086305
