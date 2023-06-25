@@ -14,6 +14,8 @@ public class P_Status : MonoBehaviour
     [SerializeField] private int ApCurrent = 5;
     [SerializeField] private int Knockback = 250;
     [SerializeField] private GUI_Control gui;
+    [SerializeField] private GameObject blood;
+    [SerializeField] private P_SoundManager soundManager;
     private string direction;
     private P_Animator animator;
 
@@ -44,6 +46,15 @@ public class P_Status : MonoBehaviour
     {
         gui.LowerHealth(damage);
         HpCurrent -= damage;
+        if (HpCurrent <= 0)
+        {
+            blood.transform.position = gameObject.transform.position + new Vector3(0, -1, 0);
+            soundManager.PlayKill();
+            Destroy(gameObject);
+            blood.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+            gameObject.GetComponent<P_SoundManager>().PlayPunch();
     }
 
     /// <summary>
